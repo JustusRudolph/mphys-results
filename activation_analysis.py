@@ -19,7 +19,8 @@ def parse_args():
   return args
 
 
-def show_module_cells(cells, activation_vals, moduleNO, cell_cluster_numbers=None):
+def show_module_cells(cells, activation_vals, moduleNO, path,
+                      cell_cluster_numbers=None):
   """
   This function plots all the cells in a module as a heatmap based
   on the value of the activation value of the cells. Since cells are
@@ -60,16 +61,19 @@ def show_module_cells(cells, activation_vals, moduleNO, cell_cluster_numbers=Non
   
     max_cluster_number = np.max(cell_cluster_numbers)
     min_cluster_number = np.min(cell_cluster_numbers)
+    distinct_cluster_numbers = list(set(cell_cluster_numbers))
+    #print(f"There are {(len(distinct_cluster_numbers))} distinct clusters.")
 
     # Ensure distinguishable colours for the N different clusters
     cmap = cm.nipy_spectral  # pick colourmap
-    n_plots = max_cluster_number - min_cluster_number + 1  # include boundaries
+    n_plots = len(distinct_cluster_numbers)  # include boundaries
     colours = [cmap(i) for i in np.linspace(0, 1, n_plots)]
     #ax2.set_prop_cycle(colours)  # write the colours to the axis
 
-    for cluster_number in range(min_cluster_number, max_cluster_number+1):
+    for cluster_number in distinct_cluster_numbers:
       cell_indices = np.where(cell_cluster_numbers == cluster_number)[0]
       relevant_cells = cells[cell_indices]
+      #print(f"In cluster {cluster_number} there are {(len(cell_indices))} cells.")
 
       x_vals_c = relevant_cells[:, 0]  # c in the end to denote for this cluster
       y_vals_c = relevant_cells[:, 1]
@@ -78,10 +82,18 @@ def show_module_cells(cells, activation_vals, moduleNO, cell_cluster_numbers=Non
       x_vals_c_shifted = x_vals_c - x_range[0]
       y_vals_c_shifted = y_vals_c - y_range[0]
 
-      colour = colours[cluster_number-min_cluster_number]  # 0 indexed
+      colour_idx = cluster_number - min_cluster_number  # shift to 0 indexed
+      colour = colours[colour_idx]
       ax2.plot(x_vals_c_shifted, y_vals_c_shifted, "o", label=cluster_number,
                c=colour)
-      
+
+    xlims = ax2.get_xlim()
+    xlen = xlims[1] - xlims[0]
+    new_xlim0 = xlims[0] - xlen*0.2  # make space for legend
+    ax2.set_xlim((new_xlim0, xlims[1]))
+    # only keep positive xticks for vanity
+    xticks = ax2.get_xticks()
+    ax2.set_xticks([xtick for xtick in xticks if xtick >= 0])
     ax2.legend()  # only want to set legend once
 
   else:  # only paint the grid (aka the module heatmap)
@@ -90,7 +102,15 @@ def show_module_cells(cells, activation_vals, moduleNO, cell_cluster_numbers=Non
     plt.colorbar(label="Activation value")
     plt.title(f"Module {moduleNO}, Number of cells activated: {len(cells)}")
   
+  fig = plt.gcf()
   plt.show()
+  save_fig = input("Save figure? [y/n]: ") == "y"
+  if (save_fig):
+    given_path = input(f"Enter path (default={path[:-4]}.png): ")
+    if (len(given_path)):
+      fig.savefig(given_path)
+    else:
+      fig.savefig(path[:-4] + ".png")
 
 
 def read_all_lines(lines):
@@ -116,6 +136,7 @@ def read_all_lines(lines):
   for i, line in enumerate(lines):
     if "activation" in line:
       end_of_global_idx = line.find(",")
+      #print(i, line)
       global_idx = int(line[5: end_of_global_idx])
 
       rest_of_line = line[end_of_global_idx+1:]  # skip comma
@@ -152,25 +173,47 @@ def read_all_lines(lines):
 
 
     elif ("After" in line):
-      relevant_line = line[line.find("Clusters"):]
-      relevant_line = relevant_line[(relevant_line.find(":")+2):]
-      # now relevant line starts from the number
-      n_clusters_end = relevant_line.find(",")
-      n_clusters = int(relevant_line[:n_clusters_end])
+      end_of_module_number = line.find(",")
+      module_number = int(line[15: end_of_module_number])
 
-      cell_idx_start = n_clusters_end + 7
-      cell_idx_end = relevant_line.find("b") - 1
-      cluster_no_start = relevant_line.find("r") + 2
+      rest_of_line = line[line.find("Clusters"):]
+      # now rest_of line starts from "Clusters"
+      n_clusters_end = rest_of_line.find(",")
+      n_clusters = int(rest_of_line[20:n_clusters_end])
 
-      cell_idx = int(relevant_line[cell_idx_start: cell_idx_end])
-      cluster_no = int(relevant_line[cluster_no_start: -1])  # skip \n
+      rest_of_line = rest_of_line[n_clusters_end+1:]  # skip past ","
+      cell_idx_start = 6
+      cell_idx_end = rest_of_line.find(",")
+      #print(rest_of_line, cell_idx_start, cell_idx_end)
+      cell_idx = int(rest_of_line[cell_idx_start:cell_idx_end])
 
+      rest_of_line = rest_of_line[cell_idx_end+1:]  # skip past ","
+      start_cellx = rest_of_line.find("(") + 1
+      end_cellx = rest_of_line.find(",")
+      start_celly = end_cellx + 2
+      end_celly = rest_of_line.find(")")
+      cell_x = int(rest_of_line[start_cellx: end_cellx])
+      cell_y = int(rest_of_line[start_celly: end_celly])
+      cell_point = (cell_x, cell_y)
+
+      cluster_no_start = rest_of_line.find("r") + 2
+      cluster_no_end = rest_of_line.find(".")
+      cluster_no = int(rest_of_line[cluster_no_start: cluster_no_end])
+
+      rest_of_line = rest_of_line[cluster_no_end:]
+      act_start = rest_of_line.find(":") + 2
+      act_end = -1
+      act = float(rest_of_line[act_start: act_end])
+
+      module_numbers.append(module_number)
+      cell_points_dict[cell_idx] = cell_point
       cell_cluster_numbers_dict[cell_idx] = cluster_no
-
+      activation_values.append(act)
   
   activation_values = np.array(activation_values)
   module_numbers = np.array(module_numbers)
   thread_points = np.array(thread_points)
+  n_clusters = len(set(cell_cluster_numbers_dict.values()))
 
   return (activation_values, cell_points_dict, module_numbers, thread_points,
           n_clusters, cell_cluster_numbers_dict)
@@ -206,6 +249,9 @@ def analyse_several(activation_values, cell_points_dict, module_numbers,
   # the several module analysis contains only looking at the cell points,
   # not the pre and post clusterisation values.
   cell_points = np.array(list(cell_points_dict.values()))
+  print(len(cell_points))
+  print(len(module_numbers))
+  input()
 
   # sorted_unique_global_indices  are the module numbers
   sorted_unique_global_indices = np.sort(np.unique(module_numbers))
@@ -247,7 +293,7 @@ def analyse_several(activation_values, cell_points_dict, module_numbers,
 
 
 def analyse_single(activation_values, cell_points_dict, module_number, 
-                   n_clusters, cell_cluster_numbers_dict):
+                   n_clusters, cell_cluster_numbers_dict, path):
   """
   This function is used for when only one module is considered. More detailed
   things will be analysed here, but no general pictures for all modules are shown.
@@ -257,17 +303,17 @@ def analyse_single(activation_values, cell_points_dict, module_number,
   # Now index i in both cell_cluster_numbers_sorted and cell_points_sorted
   # correspond to the same cell, so they can be used together
 
-  show_module_cells(cell_points_sorted, activation_values, module_number,
+  show_module_cells(cell_points_sorted, activation_values, module_number, path,
                     cell_cluster_numbers=cell_cluster_numbers_sorted)
   
-
 
 
 if __name__ == "__main__":
   # go into the main function for the functionality decisions
   # start by parsing command line arguments/flags
   args = parse_args()
-  single_module_only = args.single_module
+  single_module_only = int(args.single_module)
+
   path = args.path
 
   with open(path) as file:
@@ -282,7 +328,7 @@ if __name__ == "__main__":
     assert(np.all(module_numbers == module_number))  # ensure identical
 
     analyse_single(activation_values, cell_points_dict, module_number,
-                   n_clusters, cell_cluster_numbers_dict)
+                   n_clusters, cell_cluster_numbers_dict, path)
 
   else:
     analyse_several(activation_values, cell_points_dict, module_numbers)

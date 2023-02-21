@@ -1,0 +1,147 @@
+Running build/bin/traccc_seq_example_cuda tml_detector/trackml-detector.csv tml_pixels/ 1
+Starting CUDA clusterization.
+Number of modules: 3859
+Module 3000 initialise: 
+
+cell_indices_in_module[187610] = 0
+cell_indices_in_module[187611] = 1
+cell_indices_in_module[187612] = 2
+cell_indices_in_module[187613] = 3
+cell_indices_in_module[187614] = 4
+cell_indices_in_module[187615] = 5
+cell_indices_in_module[187616] = 6
+cell_indices_in_module[187617] = 7
+cell_indices_in_module[187618] = 8
+cell_indices_in_module[187619] = 9
+cell_indices_in_module[187620] = 10
+cell_indices_in_module[187621] = 11
+cell_indices_in_module[187622] = 12
+cell_indices_in_module[187623] = 13
+Module 3000: cell_indices_in_module[187616] = 6
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187618] = 8
+Module 3000: cell_indices_in_module[187619] = 9
+Module 3000: cell_indices_in_module[187620] = 10
+Module 3000: cell_indices_in_module[187621] = 11
+Module 3000: cell_indices_in_module[187622] = 12
+Module 3000: cell_indices_in_module[187623] = 13
+Module 3000: cell_indices_in_module[187610] = 0
+Module 3000: cell_indices_in_module[187611] = 1
+Module 3000: cell_indices_in_module[187612] = 2
+Module 3000: cell_indices_in_module[187613] = 3
+Module 3000: cell_indices_in_module[187614] = 4
+Module 3000: cell_indices_in_module[187615] = 5
+For Cell 7 with label 8 in Module 3000: Neighbour cell above with label 9. Overwrite all with current label.
+For Cell 8 with label 9 in Module 3000: Neighbour cell above with label 10. Overwrite all with current label.
+For Cell 9 with label 10 in Module 3000: Neighbour cell above with label 11. Overwrite all with current label.
+For Cell 10 with label 11 in Module 3000: Neighbour cell above with label 12. Overwrite all with current label.
+For Cell 11 with label 12 in Module 3000: Neighbour cell above with label 13. Overwrite all with current label.
+For Cell 12 with label 13 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 1 in Module 3000: Neighbour cell above with label 2. Overwrite all with current label.
+For Cell 1 with label 2 in Module 3000: Neighbour cell above with label 3. Overwrite all with current label.
+For Cell 2 with label 3 in Module 3000: Neighbour cell above with label 4. Overwrite all with current label.
+For Cell 4 with label 5 in Module 3000: Neighbour cell above with label 6. Overwrite all with current label.
+For Cell 5 with label 6 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 3 with label 4 in Module 3000: Neighbour cell left with label 5. Overwrite all with current label.
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187618] = 8
+Module 3000: cell_indices_in_module[187619] = 9
+Module 3000: cell_indices_in_module[187620] = 10
+Module 3000: cell_indices_in_module[187621] = 11
+Module 3000: cell_indices_in_module[187622] = 12
+Module 3000: cell_indices_in_module[187610] = 0
+Module 3000: cell_indices_in_module[187611] = 1
+Module 3000: cell_indices_in_module[187612] = 2
+Module 3000: cell_indices_in_module[187613] = 3
+Module 3000: cell_indices_in_module[187614] = 4
+Module 3000: cell_indices_in_module[187615] = 5
+For Cell 7 with label 9 in Module 3000: Neighbour cell above with label 10. Overwrite all with current label.
+For Cell 8 with label 10 in Module 3000: Neighbour cell above with label 11. Overwrite all with current label.
+For Cell 9 with label 11 in Module 3000: Neighbour cell above with label 12. Overwrite all with current label.
+For Cell 10 with label 12 in Module 3000: Neighbour cell above with label 13. Overwrite all with current label.
+For Cell 11 with label 13 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 12 with label 14 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 2 in Module 3000: Neighbour cell above with label 3. Overwrite all with current label.
+For Cell 1 with label 3 in Module 3000: Neighbour cell above with label 4. Overwrite all with current label.
+For Cell 2 with label 4 in Module 3000: Neighbour cell above with label 5. Overwrite all with current label.
+For Cell 4 with label 6 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 5 with label 7 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 3 with label 5 in Module 3000: Neighbour cell left with label 6. Overwrite all with current label.
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187618] = 8
+Module 3000: cell_indices_in_module[187619] = 9
+Module 3000: cell_indices_in_module[187620] = 10
+Module 3000: cell_indices_in_module[187621] = 11
+Module 3000: cell_indices_in_module[187610] = 0
+Module 3000: cell_indices_in_module[187611] = 1
+Module 3000: cell_indices_in_module[187612] = 2
+Module 3000: cell_indices_in_module[187613] = 3
+Module 3000: cell_indices_in_module[187614] = 4
+For Cell 7 with label 10 in Module 3000: Neighbour cell above with label 11. Overwrite all with current label.
+For Cell 8 with label 11 in Module 3000: Neighbour cell above with label 12. Overwrite all with current label.
+For Cell 9 with label 12 in Module 3000: Neighbour cell above with label 13. Overwrite all with current label.
+For Cell 10 with label 13 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 11 with label 14 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 3 in Module 3000: Neighbour cell above with label 4. Overwrite all with current label.
+For Cell 1 with label 4 in Module 3000: Neighbour cell above with label 5. Overwrite all with current label.
+For Cell 2 with label 5 in Module 3000: Neighbour cell above with label 6. Overwrite all with current label.
+For Cell 4 with label 7 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 3 with label 6 in Module 3000: Neighbour cell left with label 7. Overwrite all with current label.
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187618] = 8
+Module 3000: cell_indices_in_module[187619] = 9
+Module 3000: cell_indices_in_module[187620] = 10
+Module 3000: cell_indices_in_module[187610] = 0
+Module 3000: cell_indices_in_module[187611] = 1
+Module 3000: cell_indices_in_module[187612] = 2
+Module 3000: cell_indices_in_module[187613] = 3
+For Cell 7 with label 11 in Module 3000: Neighbour cell above with label 12. Overwrite all with current label.
+For Cell 8 with label 12 in Module 3000: Neighbour cell above with label 13. Overwrite all with current label.
+For Cell 9 with label 13 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 10 with label 14 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 4 in Module 3000: Neighbour cell above with label 5. Overwrite all with current label.
+For Cell 1 with label 5 in Module 3000: Neighbour cell above with label 6. Overwrite all with current label.
+For Cell 2 with label 6 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 3 with label 7 in Module 3000: Neighbour cell left with label 7. Overwrite all with current label.
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187618] = 8
+Module 3000: cell_indices_in_module[187619] = 9
+Module 3000: cell_indices_in_module[187610] = 0
+Module 3000: cell_indices_in_module[187611] = 1
+Module 3000: cell_indices_in_module[187612] = 2
+For Cell 7 with label 12 in Module 3000: Neighbour cell above with label 13. Overwrite all with current label.
+For Cell 8 with label 13 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 9 with label 14 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 5 in Module 3000: Neighbour cell above with label 6. Overwrite all with current label.
+For Cell 1 with label 6 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 2 with label 7 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187618] = 8
+Module 3000: cell_indices_in_module[187610] = 0
+Module 3000: cell_indices_in_module[187611] = 1
+For Cell 7 with label 13 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 8 with label 14 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 6 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+For Cell 1 with label 7 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+Module 3000: cell_indices_in_module[187617] = 7
+Module 3000: cell_indices_in_module[187610] = 0
+For Cell 7 with label 14 in Module 3000: Neighbour cell above with label 14. Overwrite all with current label.
+For Cell 0 with label 7 in Module 3000: Neighbour cell above with label 7. Overwrite all with current label.
+After: Idx: 3000, Clusters in module: 0, Cell 0 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 1 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 2 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 3 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 4 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 5 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 6 belongs to cluster 7
+After: Idx: 3000, Clusters in module: 0, Cell 7 belongs to cluster 14
+After: Idx: 3000, Clusters in module: 0, Cell 8 belongs to cluster 14
+After: Idx: 3000, Clusters in module: 0, Cell 9 belongs to cluster 14
+After: Idx: 3000, Clusters in module: 0, Cell 10 belongs to cluster 14
+After: Idx: 3000, Clusters in module: 0, Cell 11 belongs to cluster 14
+After: Idx: 3000, Clusters in module: 0, Cell 12 belongs to cluster 14
+After: Idx: 3000, Clusters in module: 0, Cell 13 belongs to cluster 14
+event 0
+ number of seeds (cpu): 5196
+ number of seeds (cuda): 0
+traccc_seq_example_cuda: /home/justusrudolph/Documents/University/Year5/Project/traccc_proj/traccc/examples/run/cuda/seq_example_cuda.cpp:296: int seq_run(const traccc::full_tracking_input_config&, const traccc::common_options&, bool): Assertion `spacepoints_per_event[i].items.size() == spacepoints_per_event_cuda[i].items.size()' failed.
