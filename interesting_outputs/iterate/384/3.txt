@@ -1,0 +1,30 @@
+Running build/bin/traccc_seq_example_cuda tml_detector/trackml-detector.csv tml_pixels/ 1
+Starting CUDA clusterization.
+Number of modules: 3859
+TIME TAKEN FOR HK CLUSTERISATION: 0.327444s
+TIME TAKEN FOR LABEL NORMALISATION: 0.151975s
+event 0
+ number of seeds (cpu): 5195
+ number of seeds (cuda): 5253
+ measurements matching rate: 0.987265
+ spacepoint matching rate: 0.973718
+ seed matching rate: 0.931665
+ track parameters matching rate: 0.968816
+==> Statistics ... 
+- read    36907 spacepoints from 3859 modules
+- created        199547 cells           
+- created        36907 meaurements     
+- created        36907 spacepoints     
+- created (cuda) 37382 spacepoints     
+- created (cpu)  5195 seeds
+- created (cuda) 5253 seeds
+==> Elpased time ... 
+wall time           3.46339   
+file reading (cpu)        2.47821   
+clusterization_time (cpu) 0.0150548 
+spacepoint_formation_time (cpu) 0.00127557
+clusterization and sp formation (cuda) 0.495782  
+seeding_time (cpu)        0.228411  
+seeding_time (cuda)       0.0123541 
+tr_par_esti_time (cpu)    0.0024866 
+tr_par_esti_time (cuda)   0.000353863

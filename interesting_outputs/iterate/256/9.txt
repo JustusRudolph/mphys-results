@@ -1,1 +1,30 @@
-bash: build/bin/traccc_seq_example_cuda: Permission denied
+Running build/bin/traccc_seq_example_cuda tml_detector/trackml-detector.csv tml_pixels/ 1
+Starting CUDA clusterization.
+Number of modules: 3859
+TIME TAKEN FOR HK CLUSTERISATION: 0.310711s
+TIME TAKEN FOR LABEL NORMALISATION: 0.150920s
+event 0
+ number of seeds (cpu): 5195
+ number of seeds (cuda): 5311
+ measurements matching rate: 0.982361
+ spacepoint matching rate: 0.968488
+ seed matching rate: 0.916266
+ track parameters matching rate: 0.953224
+==> Statistics ... 
+- read    36907 spacepoints from 3859 modules
+- created        199547 cells           
+- created        36907 meaurements     
+- created        36907 spacepoints     
+- created (cuda) 37562 spacepoints     
+- created (cpu)  5195 seeds
+- created (cuda) 5311 seeds
+==> Elpased time ... 
+wall time           3.41652   
+file reading (cpu)        2.44024   
+clusterization_time (cpu) 0.0141229 
+spacepoint_formation_time (cpu) 0.00125119
+clusterization and sp formation (cuda) 0.478382  
+seeding_time (cpu)        0.228293  
+seeding_time (cuda)       0.012596  
+tr_par_esti_time (cpu)    0.00248896
+tr_par_esti_time (cuda)   0.000359867

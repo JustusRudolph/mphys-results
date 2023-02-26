@@ -1,30 +1,30 @@
 Running build/bin/traccc_seq_example_cuda tml_detector/trackml-detector.csv tml_pixels/ 1
 Starting CUDA clusterization.
 Number of modules: 3859
-TIME TAKEN FOR HK CLUSTERISATION: 0.289343s
-TIME TAKEN FOR LABEL NORMALISATION: 0.168251s
+TIME TAKEN FOR HK CLUSTERISATION: 0.286468s
+TIME TAKEN FOR LABEL NORMALISATION: 0.165036s
 event 0
  number of seeds (cpu): 5195
- number of seeds (cuda): 5619
- measurements matching rate: 0.944699
- spacepoint matching rate: 0.932912
- seed matching rate: 0.815207
- track parameters matching rate: 0.8564
+ number of seeds (cuda): 5581
+ measurements matching rate: 0.946704
+ spacepoint matching rate: 0.934457
+ seed matching rate: 0.819827
+ track parameters matching rate: 0.862753
 ==> Statistics ... 
 - read    36907 spacepoints from 3859 modules
 - created        199547 cells           
 - created        36907 meaurements     
 - created        36907 spacepoints     
-- created (cuda) 39069 spacepoints     
+- created (cuda) 38991 spacepoints     
 - created (cpu)  5195 seeds
-- created (cuda) 5619 seeds
+- created (cuda) 5581 seeds
 ==> Elpased time ... 
-wall time           2.18057   
-file reading (cpu)        1.40144   
-clusterization_time (cpu) 0.00862116
-spacepoint_formation_time (cpu) 0.000741654
-clusterization and sp formation (cuda) 0.471866  
-seeding_time (cpu)        0.132035  
-seeding_time (cuda)       0.0125182 
-tr_par_esti_time (cpu)    0.00160787
-tr_par_esti_time (cuda)   0.000839135
+wall time           3.43333   
+file reading (cpu)        2.45354   
+clusterization_time (cpu) 0.0139411 
+spacepoint_formation_time (cpu) 0.0012494 
+clusterization and sp formation (cuda) 0.469108  
+seeding_time (cpu)        0.230622  
+seeding_time (cuda)       0.0130633 
+tr_par_esti_time (cpu)    0.00245801
+tr_par_esti_time (cuda)   0.00119136
