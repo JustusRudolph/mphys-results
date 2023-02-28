@@ -32,5 +32,6 @@ done
 echo "Finished simulation."
 
 # reset for next run
-unset CHECK_SPECIFIC_MODULE
+unset OUT_DIR
+unset N_RUNS
 unset OUT_PATH
