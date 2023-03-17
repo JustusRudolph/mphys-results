@@ -1,8 +1,9 @@
 #!/bin/bash
 CHECK_SPECIFIC_MODULE_ONLY=0
 OUT_PATH="mphys-results/outputs/out.txt"
+N_EVENTS=1
 OPTIND=1  # reset before while loop
-while getopts "sp:h" opt
+while getopts "sp:e:h" opt
 do
   case "$opt" in
     s)
@@ -13,7 +14,10 @@ do
       echo "Setting path to $OPTARG"
       OUT_PATH=$OPTARG
       ;;
-   
+    e)
+      echo "Running with $OPTARG events."
+      N_EVENTS=$OPTARG
+      ;;
     ?|h)
       echo "To use analyser: $0 $1 [-s] [-p <path>]"
       echo "-s: (single_cell) sets the analysis to only consider a single module, the number of which is recognised by the programme."
@@ -23,7 +27,7 @@ do
   esac
 done
 echo "Starting reconstruction simulation..."
-build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_pixels/ --events=1 --run_cpu=1 &> $OUT_PATH
+build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_pixels/ --events=$N_EVENTS --run_cpu=1 &> $OUT_PATH
 
 
 echo "Finished simulation."
@@ -34,4 +38,5 @@ python3 mphys-results/activation_analysis.py -p $OUT_PATH -s $CHECK_SPECIFIC_MOD
 
 # reset for next run
 unset CHECK_SPECIFIC_MODULE
+unset N_EVENTS
 unset OUT_PATH

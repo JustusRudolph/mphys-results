@@ -1,9 +1,10 @@
 #!/bin/bash
 CHECK_SPECIFIC_MODULE_ONLY=0
 OUT_DIR="mphys-results/outputs/experiment/"
+N_EVENTS=1
 N_RUNS=5
 OPTIND=1  # reset before while loop
-while getopts "d:n:h" opt
+while getopts "d:n:e:h" opt
 do
   case "$opt" in
     d)
@@ -12,6 +13,9 @@ do
       ;;
     n)
       N_RUNS=$OPTARG
+      ;;
+    e)
+      N_EVENTS=$OPTARG
       ;;
     ?|h)
       echo "To use analyser: $0 $1 [-s] [-p <path>]"
@@ -23,15 +27,15 @@ do
 done
 echo "Starting reconstruction simulation experiment..."
 
-for i in `seq 1 $N_RUNS`
+for j in `seq 1 $N_RUNS`
 do
-  OUT_PATH=$OUT_DIR$i".txt"
-  build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_pixels/ --events=1 --run_cpu=1 &> $OUT_PATH
+  OUT_PATH=$OUT_DIR$j".txt"
+  build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_pixels/ --events=$N_EVENTS --run_cpu=1 &> $OUT_PATH
 done
 
 echo "Finished simulation."
 
 # reset for next run
 unset OUT_DIR
-unset N_RUNS
 unset OUT_PATH
+unset j
