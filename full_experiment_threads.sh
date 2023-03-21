@@ -36,7 +36,7 @@ if [ -d $EXP_DIR ]
 fi
 
 # create directories for the thread numbers
-for i in `seq 64 64 1024`
+for i in `seq 320 64 1024`
 do
   OUT_PATH=$EXP_DIR$i
   if [ -d $OUT_PATH ] 
@@ -49,7 +49,7 @@ do
   old_iter=$(($i-64))
   # echo $old_iter
   # echo $i
-  sed -i "387s/$old_iter/$i/" /home/justusrudolph/Documents/University/Year5/Project/traccc_proj/traccc/device/cuda/src/clusterization/clusterization_algorithm.cu
+  sed -i "400s/$old_iter/$i/" /home/justusrudolph/Documents/University/Year5/Project/traccc_proj/traccc/device/cuda/src/clusterization/clusterization_algorithm.cu
   echo
   echo Compiling for $i threads...
   cmake --build build/ > /dev/null 2>&1 # build with current and pipe into nothing
@@ -58,7 +58,7 @@ do
 
 done
 # reset back to 64
-sed -i "387s/1024/64/" /home/justusrudolph/Documents/University/Year5/Project/traccc_proj/traccc/device/cuda/src/clusterization/clusterization_algorithm.cu
+sed -i "400s/1024/64/" /home/justusrudolph/Documents/University/Year5/Project/traccc_proj/traccc/device/cuda/src/clusterization/clusterization_algorithm.cu
 
 echo "Finished running experiment."
 

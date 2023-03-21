@@ -27,7 +27,7 @@ do
   esac
 done
 echo "Starting reconstruction simulation..."
-build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_pixels/ --events=$N_EVENTS --run_cpu=1 &> $OUT_PATH
+build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_full/ttbar_mu200/ --events=$N_EVENTS --run_cpu=1 &> $OUT_PATH
 
 
 echo "Finished simulation."

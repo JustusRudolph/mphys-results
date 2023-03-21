@@ -1,0 +1,139 @@
+Running build/bin/traccc_seq_example_cuda tml_detector/trackml-detector.csv tml_pixels/ 10
+Starting CUDA clusterization.
+Number of modules: 3859
+TIME TAKEN FOR HK SETUP: 0.000811s
+TIME TAKEN FOR HK CLUSTERISATION: 0.010162s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00850216s
+event 0
+ number of seeds (cpu): 5195
+ number of seeds (cuda): 5195
+ measurements matching rate: 0.997805
+ spacepoint matching rate: 0.983093
+ seed matching rate: 0.954572
+ track parameters matching rate: 0.993455
+Starting CUDA clusterization.
+Number of modules: 3902
+TIME TAKEN FOR HK SETUP: 0.000677s
+TIME TAKEN FOR HK CLUSTERISATION: 0.008365s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00949674s
+event 1
+ number of seeds (cpu): 6916
+ number of seeds (cuda): 6917
+ measurements matching rate: 0.997771
+ spacepoint matching rate: 0.983598
+ seed matching rate: 0.951562
+ track parameters matching rate: 0.994505
+Starting CUDA clusterization.
+Number of modules: 3888
+TIME TAKEN FOR HK SETUP: 0.000438s
+TIME TAKEN FOR HK CLUSTERISATION: 0.007678s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00900298s
+event 2
+ number of seeds (cpu): 6494
+ number of seeds (cuda): 6492
+ measurements matching rate: 0.997993
+ spacepoint matching rate: 0.984169
+ seed matching rate: 0.957807
+ track parameters matching rate: 0.993686
+Starting CUDA clusterization.
+Number of modules: 3833
+TIME TAKEN FOR HK SETUP: 0.000342s
+TIME TAKEN FOR HK CLUSTERISATION: 0.006276s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00737629s
+event 3
+ number of seeds (cpu): 4085
+ number of seeds (cuda): 4085
+ measurements matching rate: 0.998052
+ spacepoint matching rate: 0.984637
+ seed matching rate: 0.960098
+ track parameters matching rate: 0.996328
+Starting CUDA clusterization.
+Number of modules: 3877
+TIME TAKEN FOR HK SETUP: 0.000389s
+TIME TAKEN FOR HK CLUSTERISATION: 0.007277s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00825908s
+event 4
+ number of seeds (cpu): 5223
+ number of seeds (cuda): 5224
+ measurements matching rate: 0.998338
+ spacepoint matching rate: 0.984049
+ seed matching rate: 0.956347
+ track parameters matching rate: 0.996362
+Starting CUDA clusterization.
+Number of modules: 3894
+TIME TAKEN FOR HK SETUP: 0.000462s
+TIME TAKEN FOR HK CLUSTERISATION: 0.008342s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00981763s
+event 5
+ number of seeds (cpu): 7586
+ number of seeds (cuda): 7588
+ measurements matching rate: 0.99813
+ spacepoint matching rate: 0.983446
+ seed matching rate: 0.953731
+ track parameters matching rate: 0.994464
+Starting CUDA clusterization.
+Number of modules: 3860
+TIME TAKEN FOR HK SETUP: 0.000383s
+TIME TAKEN FOR HK CLUSTERISATION: 0.007396s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00900075s
+event 6
+ number of seeds (cpu): 5347
+ number of seeds (cuda): 5345
+ measurements matching rate: 0.998158
+ spacepoint matching rate: 0.983748
+ seed matching rate: 0.952497
+ track parameters matching rate: 0.995324
+Starting CUDA clusterization.
+Number of modules: 3888
+TIME TAKEN FOR HK SETUP: 0.000906s
+TIME TAKEN FOR HK CLUSTERISATION: 0.007714s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00902829s
+event 7
+ number of seeds (cpu): 6070
+ number of seeds (cuda): 6068
+ measurements matching rate: 0.997866
+ spacepoint matching rate: 0.983596
+ seed matching rate: 0.950906
+ track parameters matching rate: 0.99341
+Starting CUDA clusterization.
+Number of modules: 3886
+TIME TAKEN FOR HK SETUP: 0.000420s
+TIME TAKEN FOR HK CLUSTERISATION: 0.007633s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.00875398s
+event 8
+ number of seeds (cpu): 5843
+ number of seeds (cuda): 5849
+ measurements matching rate: 0.997778
+ spacepoint matching rate: 0.982304
+ seed matching rate: 0.950368
+ track parameters matching rate: 0.994523
+Starting CUDA clusterization.
+Number of modules: 3897
+TIME TAKEN FOR HK SETUP: 0.000812s
+TIME TAKEN FOR HK CLUSTERISATION: 0.007395s
+TIME TAKEN FOR CCL CLUSTERISATION CPU: 0.0110531s
+event 9
+ number of seeds (cpu): 6068
+ number of seeds (cuda): 6064
+ measurements matching rate: 0.99788
+ spacepoint matching rate: 0.984484
+ seed matching rate: 0.949242
+ track parameters matching rate: 0.991266
+==> Statistics ... 
+- read    380554 spacepoints from 38784 modules
+- created        2041344 cells           
+- created        380554 meaurements     
+- created        380554 spacepoints     
+- created (cuda) 380597 spacepoints     
+- created (cpu)  58827 seeds
+- created (cuda) 58827 seeds
+==> Elpased time ... 
+wall time           17.8707   
+file reading (cpu)        14.2405   
+clusterization_time (cpu) 0.090291  
+spacepoint_formation_time (cpu) 0.00876937
+clusterization and sp formation (cuda) 0.191853  
+seeding_time (cpu)        1.49056   
+seeding_time (cuda)       0.157617  
+tr_par_esti_time (cpu)    0.0159959 
+tr_par_esti_time (cuda)   0.00594824

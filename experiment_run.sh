@@ -25,14 +25,26 @@ do
       ;;
   esac
 done
-echo "Starting reconstruction simulation experiment..."
 
+if [ -d $OUT_DIR ] 
+  then
+    #echo "Directory $EXP_DIR already exists."
+    :
+
+  else
+    mkdir $OUT_DIR
+fi
+
+echo "Starting reconstruction simulation experiment..."
+echo -n "Completed:"
 for j in `seq 1 $N_RUNS`
 do
   OUT_PATH=$OUT_DIR$j".txt"
-  build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_pixels/ --events=$N_EVENTS --run_cpu=1 &> $OUT_PATH
+  build/bin/traccc_seq_example_cuda --detector_file=tml_detector/trackml-detector.csv --digitization_config_file=tml_detector/default-geometric-config-generic.json --input_directory=tml_full/ttbar_mu300/ --events=$N_EVENTS --run_cpu=1 &> $OUT_PATH
+  echo -n " $j"
 done
 
+echo
 echo "Finished simulation."
 
 # reset for next run
